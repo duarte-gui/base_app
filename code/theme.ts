@@ -39,11 +39,11 @@ export const Colors = {
     bgSubtle: '#F1F2F4', // segmented, cabeçalho de seção
     border: '#E6E6E6',
     divider: '#F0F0F0',
-    // texto (4 tons no lugar de 12)
+    // texto (4 tons no lugar de 12) — contraste melhorado p/ legibilidade dos hints
     text: '#1A1A1A',
-    textSecondary: '#666666',
-    textMuted: '#999999',
-    textFaint: '#BBBBBB',
+    textSecondary: '#5E5E5E',
+    textMuted: '#808080',
+    textFaint: '#9E9E9E',
     // overlay (backdrops de modal)
     overlay: 'rgba(0,0,0,0.40)',
     // compat template (mapeadas pro novo sistema)
@@ -71,9 +71,9 @@ export const Colors = {
     border: '#2E3135',
     divider: '#26282B',
     text: '#F2F2F2',
-    textSecondary: '#B0B4BA',
-    textMuted: '#888C92',
-    textFaint: '#5A5E64',
+    textSecondary: '#B8BCC2',
+    textMuted: '#9AA0A6',
+    textFaint: '#70757C',
     overlay: 'rgba(0,0,0,0.55)',
     background: '#121316',
     backgroundElement: '#212225',
@@ -117,6 +117,24 @@ export const Spacing = {
   four: 24,
   five: 32,
   six: 64,
+} as const;
+
+/**
+ * Escala tipográfica sóbria/clean — espalhar nos estilos (`...Type.screenTitle`) p/ consistência entre
+ * telas. Pesos e tamanhos padronizados; títulos de seção em caixa-alta com leve tracking.
+ */
+export const Type = {
+  screenTitle: { fontSize: 22, fontWeight: '700' as const, letterSpacing: 0.2 },
+  sectionTitle: {
+    fontSize: 13,
+    fontWeight: '700' as const,
+    letterSpacing: 0.4,
+    textTransform: 'uppercase' as const,
+  },
+  body: { fontSize: 16, fontWeight: '400' as const },
+  bodyStrong: { fontSize: 16, fontWeight: '600' as const },
+  caption: { fontSize: 13, fontWeight: '400' as const },
+  small: { fontSize: 12, fontWeight: '400' as const },
 } as const;
 
 export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
